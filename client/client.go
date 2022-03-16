@@ -7,7 +7,9 @@ import (
 )
 
 type Client struct {
-	Url       url.URL
-	Con       *websocket.Conn
+	Url url.URL
+	Con *websocket.Conn
+
 	OnMessage func([]byte, error)
+	OnError   func(error)
 }
