@@ -10,15 +10,15 @@ import (
 
 func Request() gui.Page {
 	request := gui.CreatePage("Request")
-	infoText := widget.NewLabel("Connected!")
+	infoText := widget.NewLabel("Not connected")
 	inputText := widget.NewMultiLineEntry()
 	reqUrl := widget.NewEntry()
 
 	inputText.SetPlaceHolder("Some request info...")
 	reqUrl.SetPlaceHolder("wss://example.com")
 
-	connectBtn := widget.NewButton("Disconnect", func() {
-		log.Println("Disconnected...")
+	connectBtn := widget.NewButton("Connect", func() {
+		infoText.SetText("Awaiting connection...")
 	})
 
 	inpForm := &widget.Form{
