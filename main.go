@@ -11,6 +11,7 @@ func main() {
 	win := app.NewWindow("ws-gui Go")
 
 	tabs := gui.CreateTabs([]gui.Page{
+		pages.Response(),
 		pages.Request(),
 		pages.History(),
 		pages.Settings(),

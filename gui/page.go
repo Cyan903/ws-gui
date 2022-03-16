@@ -12,7 +12,7 @@ type Page struct {
 
 func CreatePage(title string) Page {
 	p := Page{
-		container.NewCenter(),
+		container.NewAdaptiveGrid(1),
 		title,
 	}
 
