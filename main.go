@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fyne.io/fyne/v2"
 	"fyne.io/fyne/v2/app"
 	"github.com/Cyan903/ws-gui/gui"
 	"github.com/Cyan903/ws-gui/pages"
@@ -18,5 +19,6 @@ func main() {
 	})
 
 	win.SetContent(tabs)
+	win.Resize(fyne.NewSize(600, 300))
 	win.ShowAndRun()
 }

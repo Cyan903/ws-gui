@@ -12,8 +12,10 @@ func Request() gui.Page {
 	request := gui.CreatePage("Request")
 	infoText := widget.NewLabel("Connected!")
 	inputText := widget.NewMultiLineEntry()
+	reqUrl := widget.NewEntry()
 
-	inputText.SetText("input text test")
+	inputText.SetPlaceHolder("Some request info...")
+	reqUrl.SetPlaceHolder("wss://example.com")
 
 	connectBtn := widget.NewButton("Disconnect", func() {
 		log.Println("Disconnected...")
@@ -24,6 +26,8 @@ func Request() gui.Page {
 			Widget: container.NewAdaptiveGrid(2,
 				connectBtn, container.NewCenter(infoText),
 			),
+		}, {
+			Widget: reqUrl,
 		}, {
 			Widget: inputText,
 		}},
