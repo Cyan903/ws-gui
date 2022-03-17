@@ -1,0 +1,15 @@
+version: "3"
+
+vars:
+    TITLE: ws-gui
+
+tasks:
+    build:
+        - go build -o "./bin/{{.TITLE}}" *.go
+        - upx "./bin/{{.TITLE}}"
+
+    build-dev:
+        - go build -o "./bin/{{.TITLE}}" *.go
+
+    run:
+        - go run *.go
