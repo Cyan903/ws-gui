@@ -5,6 +5,7 @@ import (
 
 	"fyne.io/fyne/v2/widget"
 	"github.com/Cyan903/ws-gui/client"
+	"github.com/Cyan903/ws-gui/pages/response"
 )
 
 type conButton struct {
@@ -33,6 +34,7 @@ func (c *conButton) Connect(nurl string) {
 
 	c.lbl.SetText("Connected!")
 	c.btn.SetText("Disconnect")
+	response.Connection("Connected to", nurl)
 	c.connected = true
 }
 
@@ -41,9 +43,14 @@ func (c *conButton) Disconnect(err error) {
 
 	if err != nil {
 		c.lbl.SetText(err.Error())
+
+		if c.connected {
+			response.Print("error", err.Error())
+		}
 	}
 
 	if c.connected {
+		response.Connection("Disconnected from", c.con.Url.String())
 		c.con.Close()
 	}
 

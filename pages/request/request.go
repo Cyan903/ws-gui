@@ -8,6 +8,7 @@ import (
 	"fyne.io/fyne/v2/widget"
 	"github.com/Cyan903/ws-gui/client"
 	"github.com/Cyan903/ws-gui/gui"
+	"github.com/Cyan903/ws-gui/pages/response"
 )
 
 func connectionButton(t *widget.Label, r *widget.Entry) *widget.Button {
@@ -20,7 +21,7 @@ func connectionButton(t *widget.Label, r *widget.Entry) *widget.Button {
 				return
 			}
 
-			log.Println(string(msg))
+			response.Print("log", string(msg))
 		},
 
 		OnError: func(err error) {
@@ -65,7 +66,7 @@ func Request() gui.Page {
 		}, {
 			Widget: inputText,
 		}},
-		
+
 		OnSubmit: func() {
 			log.Println("Form submitted:", inputText.Text)
 			log.Println("multiline:", inputText.Text)
