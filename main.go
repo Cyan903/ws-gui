@@ -4,7 +4,7 @@ import (
 	"fyne.io/fyne/v2"
 	"fyne.io/fyne/v2/app"
 	"github.com/Cyan903/ws-gui/gui"
-	"github.com/Cyan903/ws-gui/pages"
+	. "github.com/Cyan903/ws-gui/pages"
 )
 
 func main() {
@@ -12,10 +12,10 @@ func main() {
 	win := app.NewWindow("ws-gui Go")
 
 	tabs := gui.CreateTabs([]gui.Page{
-		pages.Response(),
-		pages.Request(),
-		pages.History(),
-		pages.Settings(),
+		Pages["request"](),
+		Pages["response"](),
+		Pages["history"](),
+		Pages["settings"](),
 	})
 
 	win.SetContent(tabs)

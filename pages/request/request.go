@@ -1,4 +1,4 @@
-package pages
+package request
 
 import (
 	"log"

@@ -1,4 +1,4 @@
-package pages
+package response
 
 import (
 	"fyne.io/fyne/v2/widget"
@@ -8,6 +8,7 @@ import (
 func Response() gui.Page {
 	response := gui.CreatePage("Response")
 	resText := widget.NewMultiLineEntry()
+
 
 	response.AddItem(resText)
 
