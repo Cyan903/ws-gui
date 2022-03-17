@@ -7,6 +7,7 @@ import (
 )
 
 var resText = widget.NewMultiLineEntry()
+var ClearOnConnect = false
 var logFormat = map[string]string{
 	"hr":    "---------------------------------------------------------------------------",
 	"log":   "[MSG]",
@@ -19,8 +20,18 @@ func fmtText(s string) {
 	resText.Refresh()
 }
 
+func Clear() {
+	resText.Text = ""
+	resText.Refresh()
+}
+
 func Connection(c string, u string) {
-	fmtText(logFormat["hr"])
+	if ClearOnConnect {
+		Clear()
+	} else {
+		fmtText(logFormat["hr"])
+	}
+
 	fmtText(fmt.Sprintf("> %s: %s", c, u))
 }
 
