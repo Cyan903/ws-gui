@@ -2,9 +2,11 @@ package request
 
 import (
 	"net/url"
+	"time"
 
 	"fyne.io/fyne/v2/widget"
 	"github.com/Cyan903/ws-gui/client"
+	"github.com/Cyan903/ws-gui/pages/history"
 	"github.com/Cyan903/ws-gui/pages/response"
 )
 
@@ -35,6 +37,12 @@ func (c *conButton) Connect(nurl string) {
 	c.lbl.SetText("Connected!")
 	c.btn.SetText("Disconnect")
 	response.Connection("Connected to", nurl)
+	history.HistoryData.Add([4]string{"",
+		time.Now().Format(time.Kitchen),
+		u.Scheme + "://",
+		u.Host,
+	})
+	
 	c.connected = true
 }
 

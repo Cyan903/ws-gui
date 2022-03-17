@@ -1,6 +1,9 @@
 package settings
 
-import "github.com/Cyan903/ws-gui/pages/response"
+import (
+	"github.com/Cyan903/ws-gui/pages/history"
+	"github.com/Cyan903/ws-gui/pages/response"
+)
 
 func clearDisconnectFn(n bool) {
 	response.ClearOnConnect = true
@@ -11,7 +14,7 @@ func clearConsole() {
 }
 
 func clearConnectionHistory() {
-	panic("unimplemented")
+	history.HistoryData.Clear()
 }
 
 func checkUpdates() {
