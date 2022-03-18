@@ -1,7 +1,6 @@
 package request
 
 import (
-	"log"
 	"net/url"
 
 	"fyne.io/fyne/v2/container"
@@ -11,7 +10,7 @@ import (
 	"github.com/Cyan903/ws-gui/pages/response"
 )
 
-func connectionButton(t *widget.Label, r *widget.Entry) *widget.Button {
+func connectionButton(t *widget.Label, r *widget.Entry) *conButton {
 	connectBtn := conButton{}
 	client := client.Client{
 		Url: url.URL{},
@@ -40,7 +39,7 @@ func connectionButton(t *widget.Label, r *widget.Entry) *widget.Button {
 		&connectBtn, r,
 	)
 
-	return connectBtn.btn
+	return &connectBtn
 }
 
 func Request() gui.Page {
@@ -53,13 +52,10 @@ func Request() gui.Page {
 	inputText.SetPlaceHolder("Some request info...")
 	reqUrl.SetPlaceHolder("wss://example.com")
 
-	// REMOVE
-	reqUrl.SetText("ws://localhost:8080")
-
 	inpForm := &widget.Form{
 		Items: []*widget.FormItem{{
 			Widget: container.NewAdaptiveGrid(2,
-				connectBtn, container.NewCenter(infoText),
+				connectBtn.btn, container.NewCenter(infoText),
 			),
 		}, {
 			Widget: reqUrl,
@@ -67,10 +63,7 @@ func Request() gui.Page {
 			Widget: inputText,
 		}},
 
-		OnSubmit: func() {
-			log.Println("Form submitted:", inputText.Text)
-			log.Println("multiline:", inputText.Text)
-		},
+		OnSubmit: func() { sendMessage(connectBtn, inputText.Text) },
 	}
 
 	inpForm.SubmitText = "Send"

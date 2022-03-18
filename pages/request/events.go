@@ -42,7 +42,7 @@ func (c *conButton) Connect(nurl string) {
 		u.Scheme + "://",
 		u.Host,
 	})
-	
+
 	c.connected = true
 }
 
@@ -68,11 +68,27 @@ func (c *conButton) Disconnect(err error) {
 func toggleConnect(c *conButton, r *widget.Entry) func() {
 	return func() {
 		if !c.connected {
-			c.Connect(r.Text)
+			go c.Connect(r.Text)
 			return
 		}
 
 		c.Disconnect(nil)
 		c.lbl.SetText("Disconnected")
 	}
+}
+
+func sendMessage(c *conButton, m string) {
+	if !c.connected {
+		response.Print("error", "Not connected!")
+		return
+	}
+
+	response.Print("sent", m)
+	
+
+	go func() {
+		c.lbl.SetText("Sending...")
+		c.con.Send(m)
+		c.lbl.SetText("Sent!")
+	}()
 }
