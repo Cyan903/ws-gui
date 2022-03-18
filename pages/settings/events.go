@@ -16,7 +16,3 @@ func clearConsole() {
 func clearConnectionHistory() {
 	history.HistoryData.Clear()
 }
-
-func checkUpdates() {
-	panic("unimplemented")
-}
