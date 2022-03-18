@@ -84,7 +84,6 @@ func sendMessage(c *conButton, m string) {
 	}
 
 	response.Print("sent", m)
-	
 
 	go func() {
 		c.lbl.SetText("Sending...")

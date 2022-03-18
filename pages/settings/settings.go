@@ -14,10 +14,10 @@ func Settings() gui.Page {
 	clearHistory := widget.NewButton("Clear connection history", clearConnectionHistory)
 	clearConsole := widget.NewButton("Clear console", clearConsole)
 	clearOnDisconnect := widget.NewCheck("Clear on connect/disconnect", clearDisconnectFn)
-	homeUrl, _ := url.Parse("https://github.com/Cyan903/ws-gui/")
+	homeUrl, _ := url.Parse("https://github.com/Cyan903/ws-gui")
 
 	settings.AddItem(container.NewGridWithColumns(2,
-		container.NewCenter(clearOnDisconnect), container.NewCenter(widget.NewHyperlink("Source code", homeUrl)), 
+		container.NewCenter(clearOnDisconnect), container.NewCenter(widget.NewHyperlink("Source code", homeUrl)),
 		clearConsole, clearHistory,
 	))
 
