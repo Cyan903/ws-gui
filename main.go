@@ -9,7 +9,9 @@ import (
 
 func main() {
 	app := app.New()
-	win := app.NewWindow("ws-gui Go")
+	win := app.NewWindow("ws-gui")
+
+	setIcon(&win)
 
 	tabs := gui.CreateTabs([]gui.Page{
 		Pages["request"](),
