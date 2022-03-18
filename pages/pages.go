@@ -2,6 +2,7 @@ package pages
 
 import (
 	"github.com/Cyan903/ws-gui/gui"
+	"github.com/Cyan903/ws-gui/pages/help"
 	"github.com/Cyan903/ws-gui/pages/history"
 	"github.com/Cyan903/ws-gui/pages/request"
 	"github.com/Cyan903/ws-gui/pages/response"
@@ -15,4 +16,5 @@ var Pages map[string]pageFunc = map[string]pageFunc{
 	"request":  request.Request,
 	"response": response.Response,
 	"settings": settings.Settings,
+	"help":     help.Help,
 }

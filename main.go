@@ -18,6 +18,7 @@ func main() {
 		Pages["response"](),
 		Pages["history"](),
 		Pages["settings"](),
+		Pages["help"](),
 	})
 
 	win.SetContent(tabs)

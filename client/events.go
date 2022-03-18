@@ -1,8 +1,6 @@
 package client
 
-import (
-	"github.com/gorilla/websocket"
-)
+import "github.com/gorilla/websocket"
 
 func (c *Client) Send(msg string) {
 	err := c.Con.WriteMessage(websocket.TextMessage, []byte(msg))

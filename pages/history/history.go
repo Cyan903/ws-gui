@@ -1,8 +1,6 @@
 package history
 
-import (
-	"github.com/Cyan903/ws-gui/gui"
-)
+import "github.com/Cyan903/ws-gui/gui"
 
 var HistoryData = tblHistory{}
 
