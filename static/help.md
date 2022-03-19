@@ -10,10 +10,10 @@ To make a request, click on the `request` tab and fill in the entry with a prope
 - `ws://example.com`
 - `wss://example.com` (for ssl only)
 
-Fill in the request info entry and hit `send` to send a message.
+Once finished, simply hit `send` to send a message.
 #####
 ## Response
-The responses are logged into a simple multi line entry. The format for messages is:
+The responses are logged into a simple multi line entry. Example:
 ```
 [MSG] for a received message
 [YOU] for a message sent by you
