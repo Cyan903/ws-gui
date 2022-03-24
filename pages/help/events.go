@@ -30,7 +30,7 @@ func downloadHelp() {
 		return
 	}
 
-	if _, err := os.Stat("/path/to/whatever"); os.IsNotExist(err) {
+	if _, err := os.Stat("static"); os.IsNotExist(err) {
 		os.Mkdir("static", os.ModePerm)
 	}
 

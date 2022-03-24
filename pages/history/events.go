@@ -32,6 +32,7 @@ func (t *tblHistory) toTable() {
 			return len(t.data), len(t.data[0])
 		},
 		func() fyne.CanvasObject {
+			// Dummy text for width
 			return widget.NewLabel("example.com")
 		},
 		func(i widget.TableCellID, o fyne.CanvasObject) {
